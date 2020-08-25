@@ -1,0 +1,42 @@
+$white: #fff;
+$inactive-color: #eeeded;
+
+.select-field {
+  cursor: pointer;
+  border: 1px solid #eeeded;
+  padding: 10px;
+  width: 170px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .select-arrow {
+    font-size: 20px;
+  }
+
+}
+
+.select-list-wrapper {
+  position: relative;
+  .select-list {
+    background-color: $white;
+    border: 1px solid #eeeded;
+    border-color: $inactive-color;
+    border-radius: 0 0 4px 4px;
+    min-height: 150px;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 0;
+    position: absolute;
+    width: 190px;
+    .select-item {
+      cursor: pointer;
+      line-height: 35px;
+      &:hover,
+      &.is-selected {
+        background-color: #eeeded;
+        color: #000;
+      }
+    }
+  }
+}

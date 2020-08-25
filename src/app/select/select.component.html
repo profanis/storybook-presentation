@@ -1,0 +1,21 @@
+<div class="select-field" (click)="isOpen = true">
+  <ng-container *ngIf="!selectedItem">
+    Select
+  </ng-container>
+  <ng-container *ngIf="selectedItem">
+    {{selectedItem.value}}
+  </ng-container>
+   <span class="select-arrow">&#x2304;</span>
+</div>
+<div class="select-list-wrapper" *ngIf="isOpen">
+  <ul class="select-list">
+    <li
+      *ngFor="let item of items; let idx = index"
+      class="select-item"
+      [class.is-selected]="selectedItem === item"
+      (click)="selectItem(item)"
+    >
+      {{ item.value }}
+    </li>
+  </ul>
+</div>
