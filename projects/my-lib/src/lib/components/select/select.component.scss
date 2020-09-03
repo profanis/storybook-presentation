@@ -30,6 +30,7 @@ $inactive-color: #eeeded;
     position: absolute;
     width: 190px;
     .select-item {
+      padding-left: 8px;
       cursor: pointer;
       line-height: 35px;
       &:hover,

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SelectComponent } from '@my-lib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SelectComponent } from './shared/components/select/select.component';
 
 
 @NgModule({
