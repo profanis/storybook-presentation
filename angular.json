@@ -163,6 +163,127 @@
           }
         }
       }
+    },
+    "ui-explorer": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ui-explorer",
+      "sourceRoot": "projects/ui-explorer/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ui-explorer",
+            "index": "projects/ui-explorer/src/index.html",
+            "main": "projects/ui-explorer/src/main.ts",
+            "polyfills": "projects/ui-explorer/src/polyfills.ts",
+            "tsConfig": "projects/ui-explorer/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ui-explorer/src/favicon.ico",
+              "projects/ui-explorer/src/assets"
+            ],
+            "styles": [
+              "projects/ui-explorer/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ui-explorer/src/environments/environment.ts",
+                  "with": "projects/ui-explorer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ui-explorer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ui-explorer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui-explorer:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ui-explorer/src/test.ts",
+            "polyfills": "projects/ui-explorer/src/polyfills.ts",
+            "tsConfig": "projects/ui-explorer/tsconfig.spec.json",
+            "karmaConfig": "projects/ui-explorer/karma.conf.js",
+            "assets": [
+              "projects/ui-explorer/src/favicon.ico",
+              "projects/ui-explorer/src/assets"
+            ],
+            "styles": [
+              "projects/ui-explorer/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ui-explorer/tsconfig.app.json",
+              "projects/ui-explorer/tsconfig.spec.json",
+              "projects/ui-explorer/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ui-explorer/e2e/protractor.conf.js",
+            "devServerTarget": "ui-explorer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ui-explorer:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "storybook-presentation"
 }
