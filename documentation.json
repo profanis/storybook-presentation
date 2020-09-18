@@ -198,7 +198,7 @@
         },
         {
             "name": "SelectComponent",
-            "id": "component-SelectComponent-f2133574a0b4611cb2aa1da37e86161e",
+            "id": "component-SelectComponent-7d3e79129bffe5925952caac88e791df",
             "file": "projects/my-lib/src/lib/components/select/select.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -218,7 +218,8 @@
             "inputsClass": [
                 {
                     "name": "items",
-                    "line": 10,
+                    "description": "<p>The items to display on the list</p>\n",
+                    "line": 14,
                     "type": "literal type[]"
                 }
             ],
@@ -226,7 +227,8 @@
                 {
                     "name": "select",
                     "defaultValue": "new EventEmitter()",
-                    "line": 11,
+                    "description": "<p>The event to handle on item select</p>\n",
+                    "line": 19,
                     "type": "EventEmitter"
                 }
             ],
@@ -234,17 +236,17 @@
                 {
                     "name": "isOpen",
                     "defaultValue": "false",
-                    "type": "",
+                    "type": "boolean",
                     "optional": false,
-                    "description": "",
-                    "line": 13
+                    "description": "<p>It controls whether the select menu is open or not</p>\n",
+                    "line": 24
                 },
                 {
                     "name": "selectedItem",
-                    "type": "any",
+                    "type": "literal type",
                     "optional": false,
-                    "description": "",
-                    "line": 14
+                    "description": "<p>State of the selected item</p>\n",
+                    "line": 29
                 }
             ],
             "methodsClass": [
@@ -259,7 +261,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 32,
                     "jsdoctags": [
                         {
                             "name": "item",
@@ -284,13 +286,13 @@
                     "argsDecorator": [
                         "$event"
                     ],
-                    "line": 24
+                    "line": 39
                 }
             ],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SelectComponent {\n  @Input() items: {[key:string]: string}[]\n  @Output() select = new EventEmitter()\n\n  isOpen = false\n  selectedItem: any\n  constructor(private elementRef: ElementRef) { }\n\n  selectItem(item: {[key:string]: string}) {\n    this.selectedItem = item;\n    this.isOpen = false\n    this.select.emit(item)\n  }\n\n  @HostListener('document:click', ['$event'])\n  private closeOnDocumentClick(event: MouseEvent) {\n    if (!this.elementRef.nativeElement.contains(event.target)) {\n      this.isOpen = false\n    }\n  }\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SelectComponent {\n\n  /**\n   * The items to display on the list\n   */\n  @Input() items: {[key:string]: string}[]\n\n  /**\n   * The event to handle on item select\n   */\n  @Output() select = new EventEmitter()\n\n  /**\n   * It controls whether the select menu is open or not\n   */\n  isOpen: boolean = false\n\n  /**\n   * State of the selected item\n   */\n  selectedItem: {[key:string]: string}\n  constructor(private elementRef: ElementRef) { }\n\n  selectItem(item: {[key:string]: string}) {\n    this.selectedItem = item;\n    this.isOpen = false\n    this.select.emit(item)\n  }\n\n  @HostListener('document:click', ['$event'])\n  private closeOnDocumentClick(event: MouseEvent) {\n    if (!this.elementRef.nativeElement.contains(event.target)) {\n      this.isOpen = false\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -308,7 +310,7 @@
                         "type": "ElementRef"
                     }
                 ],
-                "line": 14,
+                "line": 29,
                 "jsdoctags": [
                     {
                         "name": "elementRef",
@@ -323,7 +325,7 @@
         },
         {
             "name": "SelectDocComponent",
-            "id": "component-SelectDocComponent-ef17becc42299852ffef106419cc3a10",
+            "id": "component-SelectDocComponent-8663b3fb74ff260e657cbbee8364495a",
             "file": "projects/ui-explorer/src/stories/select/select-doc/select-doc.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -344,7 +346,7 @@
             "propertiesClass": [
                 {
                     "name": "items",
-                    "defaultValue": "[\n    {key:1, value: 'Greece'}\n  ]",
+                    "defaultValue": "[\n    {key:1, value: 'Greece'},\n    {key:2, value: 'Poland'},\n    {key:3, value: 'Netherlands'},\n    {key:4, value: 'Italy'},\n  ]",
                     "type": "[]",
                     "optional": false,
                     "description": "",
@@ -355,18 +357,10 @@
                     "type": "literal type",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 16
                 }
             ],
             "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 17
-                },
                 {
                     "name": "onSelect",
                     "args": [
@@ -395,7 +389,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\n\n@Component({\n  templateUrl: './select-doc.component.html',\n  styleUrls: ['./select-doc.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SelectDocComponent implements OnInit {\n\n  items = [\n    {key:1, value: 'Greece'}\n  ]\n  selected: {[key:string]: string}\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  onSelect(selectedItem) {\n    this.selected = selectedItem\n  }\n\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\n\n@Component({\n  templateUrl: './select-doc.component.html',\n  styleUrls: ['./select-doc.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SelectDocComponent {\n\n  items = [\n    {key:1, value: 'Greece'},\n    {key:2, value: 'Poland'},\n    {key:3, value: 'Netherlands'},\n    {key:4, value: 'Italy'},\n  ]\n  selected: {[key:string]: string}\n\n  constructor() { }\n\n  onSelect(selectedItem) {\n    this.selected = selectedItem\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -408,11 +402,8 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 13
+                "line": 16
             },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<app-select [items]=\"items\" (select)=\"onSelect($event)\"></app-select>\n\nThe selected item is {{ selected | json }}\n"
         }
     ],
@@ -547,6 +538,14 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -561,6 +560,14 @@
                 "file": "src/environments/environment.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "",
+                "defaultValue": "selectDocComponent.bind({})"
             },
             {
                 "name": "Large",
@@ -589,14 +596,14 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/test.ts",
+                "file": "projects/my-lib/src/test.ts",
                 "type": "literal type"
             },
             {
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/my-lib/src/test.ts",
+                "file": "src/test.ts",
                 "type": "literal type"
             },
             {
@@ -608,12 +615,21 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "selectDocComponent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "Story<SelectDocComponent>",
+                "defaultValue": "(args: SelectDocComponent) => ({\n  component: SelectDocComponent,\n  moduleMetadata: {\n    declarations: [SelectComponent]\n  },\n  props: args,\n})"
+            },
+            {
                 "name": "selectStories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Select', module)"
+                "defaultValue": "storiesOf('Select', module)",
+                "description": "<p>Manual documentation</p>\n"
             },
             {
                 "name": "Small",
@@ -622,6 +638,14 @@
                 "file": "projects/ui-explorer/src/stories/button/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "Story<SelectComponent>",
+                "defaultValue": "(args: SelectComponent) => ({\n  component: SelectComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -687,6 +711,49 @@
                     "type": "literal type"
                 }
             ],
+            "projects/ui-explorer/src/stories/select/select.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "",
+                    "defaultValue": "selectDocComponent.bind({})"
+                },
+                {
+                    "name": "selectDocComponent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "Story<SelectDocComponent>",
+                    "defaultValue": "(args: SelectDocComponent) => ({\n  component: SelectDocComponent,\n  moduleMetadata: {\n    declarations: [SelectComponent]\n  },\n  props: args,\n})"
+                },
+                {
+                    "name": "selectStories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Select', module)",
+                    "description": "<p>Manual documentation</p>\n"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "Story<SelectComponent>",
+                    "defaultValue": "(args: SelectComponent) => ({\n  component: SelectComponent,\n  props: args,\n})"
+                }
+            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -748,16 +815,6 @@
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
-            ],
-            "projects/ui-explorer/src/stories/select/select.stories.ts": [
-                {
-                    "name": "selectStories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Select', module)"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -779,7 +836,7 @@
         ]
     },
     "coverage": {
-        "count": 4,
+        "count": 10,
         "status": "low",
         "files": [
             {
@@ -796,9 +853,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "SelectComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/8",
-                "status": "low"
+                "coveragePercent": 50,
+                "coverageCount": "4/8",
+                "status": "medium"
             },
             {
                 "filePath": "projects/my-lib/src/test.ts",
@@ -885,7 +942,37 @@
                 "linktype": "component",
                 "name": "SelectDocComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "selectDocComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -894,6 +981,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "selectStories",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

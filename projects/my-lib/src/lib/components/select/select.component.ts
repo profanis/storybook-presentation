@@ -7,11 +7,26 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListe
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectComponent {
+
+  /**
+   * The items to display on the list
+   */
   @Input() items: {[key:string]: string}[]
+
+  /**
+   * The event to handle on item select
+   */
   @Output() select = new EventEmitter()
 
-  isOpen = false
-  selectedItem: any
+  /**
+   * It controls whether the select menu is open or not
+   */
+  isOpen: boolean = false
+
+  /**
+   * State of the selected item
+   */
+  selectedItem: {[key:string]: string}
   constructor(private elementRef: ElementRef) { }
 
   selectItem(item: {[key:string]: string}) {

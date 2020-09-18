@@ -6,6 +6,17 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     '@storybook/addon-knobs/register',
-    '@storybook/addon-notes/register'
+    '@storybook/addon-notes/register',
+    '@storybook/addon-a11y',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        docs: true,
+        controls: true,
+        actions: true,
+        viewport: true,
+        backgrounds: true,
+      }
+    }
   ]
 }
