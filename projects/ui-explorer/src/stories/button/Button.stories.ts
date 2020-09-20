@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import Button from './button.component';
 
 export default {
-  title: 'Example/Button',
+  title: 'Default/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -4,6 +4,8 @@ import { Meta, storiesOf, Story } from '@storybook/angular';
 import { SelectComponent } from 'projects/my-lib/src/public-api';
 import { SelectDocComponent } from './select-doc/select-doc.component';
 // @ts-ignore
+import essentialNotes from './select.essential-notes.md';
+// @ts-ignore
 import notes from './select.notes.md';
 
 
@@ -15,8 +17,8 @@ export default {
   component: SelectComponent,
   argTypes: { select: { action: 'clicked' } },
   parameters: {
-    docs: { page: null } , // ! DISABLE THE DOCS
-    notes: { markdown: notes } // ! ADD NOTES
+    // docs: { page: null } , // ! DISABLE THE DOCS
+    notes: { markdown: essentialNotes } // ! ADD NOTES
   }
 } as Meta;
 
@@ -53,7 +55,7 @@ export const Example = selectDocComponent.bind({});
 /**
  * Manual documentation
  */
-const selectStories = storiesOf('Select', module)
+const selectStories = storiesOf('Example/Select', module)
 selectStories.addDecorator(withKnobs)
 
 selectStories
