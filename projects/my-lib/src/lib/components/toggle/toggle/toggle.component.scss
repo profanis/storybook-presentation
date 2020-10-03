@@ -1,0 +1,51 @@
+.toggle-wrapper {
+  align-items: center;
+  display: flex;
+
+  .toggle-switch {
+    background-color: gray;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 48px;
+
+    &::after {
+      background-color: white;
+      border-radius: 50%;
+      content: '';
+      height: 16px;
+      left: 4px;
+      position: absolute;
+      top: 4px;
+      transition: left 0.3s;
+      width: 16px;
+    }
+  }
+
+  .toggle-checkbox {
+    display: none;
+
+    &:checked {
+      + .toggle-switch::after {
+        left: 28px;
+      }
+      + .toggle-switch {
+        background-color: rgb(101, 185, 101);
+      }
+    }
+  }
+
+  .toggle-label {
+    font-size: 14px;
+    margin-left: 8px;
+    order: 0;
+
+    &.text-left {
+      margin-left: 0;
+      margin-right: 8px;
+      order: -1;
+    }
+  }
+}

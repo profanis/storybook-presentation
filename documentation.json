@@ -39,7 +39,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-df3e21cf15d25e9b715dbecf333ccb17",
+            "id": "component-AppComponent-4b3130b96b5d338ec9e14830f49e2eda",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -73,6 +73,14 @@
                     "optional": false,
                     "description": "",
                     "line": 9
+                },
+                {
+                    "name": "toggleStatus",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
                 }
             ],
             "methodsClass": [
@@ -87,7 +95,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 20,
                     "jsdoctags": [
                         {
                             "name": "country",
@@ -104,7 +112,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'storybook-presentation';\n  countries = [\n    {key: 1, value: 'Greece'},\n    {key: 2, value: 'Poland'},\n    {key: 3, value: 'Netherlands'},\n    {key: 4, value: 'Spain'},\n    {key: 4, value: 'Italy'},\n  ]\n\n  onCountrySelect(country) {\n    console.log(country)\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'storybook-presentation';\n  countries = [\n    {key: 1, value: 'Greece'},\n    {key: 2, value: 'Poland'},\n    {key: 3, value: 'Netherlands'},\n    {key: 4, value: 'Spain'},\n    {key: 4, value: 'Italy'},\n  ]\n\n  toggleStatus = false\n\n  onCountrySelect(country) {\n    console.log(country)\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -113,7 +121,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<app-select [items]=\"countries\" (select)=\"onCountrySelect($event)\"></app-select>\n"
+            "templateData": "<div class=\"ml-5 mt-5\">\n  <div class=\"mb-5\">\n    <app-toggle [status]=\"toggleStatus\" (toggle)=\"toggleStatus = $event\" [label]=\"'Toggle me'\" [textInLeft]=\"true\"></app-toggle>\n  </div>\n\n  <div class=\"mb-5\">\n    <app-select [items]=\"countries\" (select)=\"onCountrySelect($event)\"></app-select>\n  </div>\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -405,6 +413,267 @@
                 "line": 16
             },
             "templateData": "<app-select [items]=\"items\" (select)=\"onSelect($event)\"></app-select>\n\nThe selected item is {{ selected | json }}\n"
+        },
+        {
+            "name": "ToggleComponent",
+            "id": "component-ToggleComponent-a558408c821a96a6d27c718e4e14902e",
+            "file": "projects/my-lib/src/lib/components/toggle/toggle/toggle.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-toggle",
+            "styleUrls": [
+                "./toggle.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./toggle.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "description": "<p>The label near the toggle button</p>\n",
+                    "line": 18,
+                    "type": "string"
+                },
+                {
+                    "name": "status",
+                    "description": "<p>The state of the toggle. True means &quot;ON&quot;, false means &quot;OFF&quot;</p>\n",
+                    "line": 13,
+                    "type": "boolean"
+                },
+                {
+                    "name": "textInLeft",
+                    "defaultValue": "false",
+                    "description": "<p>By default the label position is on right. If set this value to &quot;true&quot;, the position will be on left</p>\n",
+                    "line": 23,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "toggle",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "description": "<p>The event that will emit on each state change</p>\n",
+                    "line": 28,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "inputId",
+                    "defaultValue": "Math.random()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "ngControl",
+                    "type": "NgControl",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "Optional",
+                            "stringifiedArguments": ""
+                        },
+                        {
+                            "name": "Host",
+                            "stringifiedArguments": ""
+                        }
+                    ],
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 38
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "optional": true,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "status",
+                            "type": "boolean"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "jsdoctags": [
+                        {
+                            "name": "status",
+                            "type": "boolean",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Host, Input, Optional, Output } from '@angular/core'\nimport { ControlValueAccessor, NgControl } from '@angular/forms'\n\n@Component({\n  selector: 'app-toggle',\n  templateUrl: './toggle.component.html',\n  styleUrls: ['./toggle.component.scss'],\n})\nexport class ToggleComponent implements ControlValueAccessor {\n  /**\n   * The state of the toggle. True means \"ON\", false means \"OFF\"\n   */\n  @Input() status: boolean\n\n  /**\n   * The label near the toggle button\n   */\n  @Input() label: string\n\n  /**\n   * By default the label position is on right. If set this value to \"true\", the position will be on left\n   */\n  @Input() textInLeft: boolean = false\n\n  /**\n   * The event that will emit on each state change\n   */\n  @Output('toggle') _toggle = new EventEmitter<boolean>()\n\n  inputId = Math.random()\n\n  constructor(@Optional() @Host() public ngControl: NgControl) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this\n    }\n  }\n\n  onTouched = () => {}\n  setDisabledState?(isDisabled: boolean): void {}\n\n  onChange = (value: any) => {\n    this.status = value\n    this._toggle.emit(value)\n  }\n\n\n  writeValue(status: boolean): void {\n    this.status = status\n  }\n  registerOnChange(fn: any): void {\n    this.onChange = fn\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouched = fn\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".toggle-wrapper {\n  align-items: center;\n  display: flex;\n\n  .toggle-switch {\n    background-color: gray;\n    border-radius: 20px;\n    cursor: pointer;\n    display: inline-block;\n    height: 24px;\n    position: relative;\n    width: 48px;\n\n    &::after {\n      background-color: white;\n      border-radius: 50%;\n      content: '';\n      height: 16px;\n      left: 4px;\n      position: absolute;\n      top: 4px;\n      transition: left 0.3s;\n      width: 16px;\n    }\n  }\n\n  .toggle-checkbox {\n    display: none;\n\n    &:checked {\n      + .toggle-switch::after {\n        left: 28px;\n      }\n      + .toggle-switch {\n        background-color: rgb(101, 185, 101);\n      }\n    }\n  }\n\n  .toggle-label {\n    font-size: 14px;\n    margin-left: 8px;\n    order: 0;\n\n    &.text-left {\n      margin-left: 0;\n      margin-right: 8px;\n      order: -1;\n    }\n  }\n}\n",
+                    "styleUrl": "./toggle.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "ngControl",
+                        "type": "NgControl"
+                    }
+                ],
+                "line": 30,
+                "jsdoctags": [
+                    {
+                        "name": "ngControl",
+                        "type": "NgControl",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "<div class=\"toggle-wrapper\">\n  <div class=\"d-flex align-items-center\">\n    <input type=\"checkbox\" id=\"{{ inputId }}\" class=\"toggle-checkbox\" (ngModelChange)=\"onChange($event)\" [(ngModel)]=\"status\" />\n    <label for=\"{{ inputId }}\" class=\"toggle-switch\"></label>\n  </div>\n  <span class=\"toggle-label\" [ngClass]=\"{ 'text-left': textInLeft }\">{{ label }}</span>\n</div>\n"
+        },
+        {
+            "name": "ToggleDocComponent",
+            "id": "component-ToggleDocComponent-a5bf0185db580d649b3b5a7e307cc8ba",
+            "file": "projects/ui-explorer/src/stories/toggle/toggle-doc/toggle-doc.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [
+                "./toggle-doc.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./toggle-doc.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core';\n\n@Component({\n  templateUrl: './toggle-doc.component.html',\n  styleUrls: ['./toggle-doc.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ToggleDocComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./toggle-doc.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<!-- <app-select [items]=\"items\" (select)=\"onSelect($event)\"></app-select>\n\nThe selected item is {{ selected | json }} -->\n"
         }
     ],
     "modules": [
@@ -431,6 +700,9 @@
                     "elements": [
                         {
                             "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "ToggleModule"
                         }
                     ]
                 },
@@ -509,10 +781,55 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "ToggleModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ToggleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ToggleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
             {
                 "name": "context",
                 "ctype": "miscellaneous",
@@ -530,18 +847,10 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
-                "name": "context",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/test.ts",
-                "type": "",
-                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-            },
-            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -560,14 +869,6 @@
                 "file": "src/environments/environment.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "Example",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "",
-                "defaultValue": "selectDocComponent.bind({})"
             },
             {
                 "name": "Large",
@@ -589,7 +890,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-explorer/src/test.ts",
+                "file": "src/test.ts",
                 "type": "literal type"
             },
             {
@@ -603,7 +904,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/test.ts",
+                "file": "projects/ui-explorer/src/test.ts",
                 "type": "literal type"
             },
             {
@@ -615,20 +916,12 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "selectDocComponent",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "Story<SelectDocComponent>",
-                "defaultValue": "(args: SelectDocComponent) => ({\n  component: SelectDocComponent,\n  moduleMetadata: {\n    declarations: [SelectComponent]\n  },\n  props: args,\n})"
-            },
-            {
                 "name": "selectStories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
                 "type": "",
-                "defaultValue": "storiesOf('Select', module)",
+                "defaultValue": "storiesOf('Manual/Select', module)",
                 "description": "<p>Manual documentation</p>\n"
             },
             {
@@ -643,23 +936,40 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "Story<SelectComponent>",
-                "defaultValue": "(args: SelectComponent) => ({\n  component: SelectComponent,\n  props: args,\n})"
+                "file": "projects/ui-explorer/src/stories/button/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ui-explorer/src/stories/button/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
+                "type": "Story<ToggleComponent>",
+                "defaultValue": "(args: ToggleComponent) => ({\n  component: ToggleComponent,\n  props: args,\n  moduleMetadata: {\n    declarations: [ToggleComponent]\n  },\n  template: '<app-toggle [status]=\"status\" [label]=\"label\" [textInLeft]=\"textInLeft\" (toggle)=\"toggle($event)\"></app-toggle>'\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "type": "literal type"
+                }
+            ],
             "projects/my-lib/src/test.ts": [
                 {
                     "name": "context",
@@ -694,64 +1004,22 @@
                     "type": "literal type"
                 }
             ],
-            "src/test.ts": [
-                {
-                    "name": "context",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/test.ts",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/test.ts",
-                    "type": "literal type"
-                }
-            ],
-            "projects/ui-explorer/src/stories/select/select.stories.ts": [
+            "projects/ui-explorer/src/stories/toggle/toggle.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Example",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                    "type": "",
-                    "defaultValue": "selectDocComponent.bind({})"
-                },
-                {
-                    "name": "selectDocComponent",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                    "type": "Story<SelectDocComponent>",
-                    "defaultValue": "(args: SelectDocComponent) => ({\n  component: SelectDocComponent,\n  moduleMetadata: {\n    declarations: [SelectComponent]\n  },\n  props: args,\n})"
-                },
-                {
-                    "name": "selectStories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Select', module)",
-                    "description": "<p>Manual documentation</p>\n"
                 },
                 {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                    "type": "Story<SelectComponent>",
-                    "defaultValue": "(args: SelectComponent) => ({\n  component: SelectComponent,\n  props: args,\n})"
+                    "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
+                    "type": "Story<ToggleComponent>",
+                    "defaultValue": "(args: ToggleComponent) => ({\n  component: ToggleComponent,\n  props: args,\n  moduleMetadata: {\n    declarations: [ToggleComponent]\n  },\n  template: '<app-toggle [status]=\"status\" [label]=\"label\" [textInLeft]=\"textInLeft\" (toggle)=\"toggle($event)\"></app-toggle>'\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -815,6 +1083,17 @@
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
+            ],
+            "projects/ui-explorer/src/stories/select/select.stories.ts": [
+                {
+                    "name": "selectStories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "",
+                    "defaultValue": "storiesOf('Manual/Select', module)",
+                    "description": "<p>Manual documentation</p>\n"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -836,7 +1115,7 @@
         ]
     },
     "coverage": {
-        "count": 10,
+        "count": 11,
         "status": "low",
         "files": [
             {
@@ -855,6 +1134,15 @@
                 "name": "SelectComponent",
                 "coveragePercent": 50,
                 "coverageCount": "4/8",
+                "status": "medium"
+            },
+            {
+                "filePath": "projects/my-lib/src/lib/components/toggle/toggle/toggle.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToggleComponent",
+                "coveragePercent": 28,
+                "coverageCount": "4/14",
                 "status": "medium"
             },
             {
@@ -950,43 +1238,32 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Example",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "selectDocComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "selectStories",
                 "coveragePercent": 100,
                 "coverageCount": "1/1",
                 "status": "very-good"
             },
             {
-                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "filePath": "projects/ui-explorer/src/stories/toggle/toggle-doc/toggle-doc.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToggleDocComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1021,7 +1298,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

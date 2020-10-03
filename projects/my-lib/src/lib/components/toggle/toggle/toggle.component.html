@@ -1,0 +1,7 @@
+<div class="toggle-wrapper">
+  <div class="d-flex align-items-center">
+    <input type="checkbox" id="{{ inputId }}" class="toggle-checkbox" (ngModelChange)="onChange($event)" [(ngModel)]="status" />
+    <label for="{{ inputId }}" class="toggle-switch"></label>
+  </div>
+  <span class="toggle-label" [ngClass]="{ 'text-left': textInLeft }">{{ label }}</span>
+</div>

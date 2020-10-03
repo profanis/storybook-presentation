@@ -15,6 +15,8 @@ export class AppComponent {
     {key: 4, value: 'Italy'},
   ]
 
+  toggleStatus = false
+
   onCountrySelect(country) {
     console.log(country)
   }
