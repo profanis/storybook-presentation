@@ -207,7 +207,7 @@
         {
             "name": "SelectComponent",
             "id": "component-SelectComponent-7d3e79129bffe5925952caac88e791df",
-            "file": "projects/my-lib/src/lib/components/select/select.component.ts",
+            "file": "projects/my-lib/src/lib/components/select/select/select.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
@@ -689,9 +689,6 @@
                     "elements": [
                         {
                             "name": "AppComponent"
-                        },
-                        {
-                            "name": "SelectComponent"
                         }
                     ]
                 },
@@ -700,6 +697,9 @@
                     "elements": [
                         {
                             "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "SelectModule"
                         },
                         {
                             "name": "ToggleModule"
@@ -771,6 +771,43 @@
                 {
                     "type": "exports",
                     "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SelectModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SelectComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SelectComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -1128,7 +1165,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/my-lib/src/lib/components/select/select.component.ts",
+                "filePath": "projects/my-lib/src/lib/components/select/select/select.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "SelectComponent",
