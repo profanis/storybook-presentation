@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
+import { ToggleComponent } from '@my-lib';
 import { Meta, Story } from '@storybook/angular';
-import { ToggleComponent } from '../../../../my-lib/src/lib/components/toggle/toggle/toggle.component';
 // @ts-ignore
 import notes from './toggle-notes.md';
 
@@ -13,7 +13,7 @@ export default {
   component: ToggleComponent,
   argTypes: { toggle: { action: 'toggle state' } },
   parameters: {
-    notes: { markdown: notes } // ! ADD NOTES
+    notes: { markdown: notes }
   },
   decorators: [
     (storyFunc) => {

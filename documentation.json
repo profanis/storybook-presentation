@@ -332,89 +332,6 @@
             "templateData": "<div class=\"select-field\" (click)=\"isOpen = true\">\n  <ng-container *ngIf=\"!selectedItem\">\n    Select\n  </ng-container>\n  <ng-container *ngIf=\"selectedItem\">\n    {{selectedItem.value}}\n  </ng-container>\n   <span class=\"select-arrow\">&#x2304;</span>\n</div>\n<div class=\"select-list-wrapper\" *ngIf=\"isOpen\">\n  <ul class=\"select-list\">\n    <li\n      *ngFor=\"let item of items; let idx = index\"\n      class=\"select-item\"\n      [class.is-selected]=\"selectedItem === item\"\n      (click)=\"selectItem(item)\"\n    >\n      {{ item.value }}\n    </li>\n  </ul>\n</div>\n"
         },
         {
-            "name": "SelectDocComponent",
-            "id": "component-SelectDocComponent-8663b3fb74ff260e657cbbee8364495a",
-            "file": "projects/ui-explorer/src/stories/select/select-doc/select-doc.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "styleUrls": [
-                "./select-doc.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./select-doc.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "items",
-                    "defaultValue": "[\n    {key:1, value: 'Greece'},\n    {key:2, value: 'Poland'},\n    {key:3, value: 'Netherlands'},\n    {key:4, value: 'Italy'},\n  ]",
-                    "type": "[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
-                },
-                {
-                    "name": "selected",
-                    "type": "literal type",
-                    "optional": false,
-                    "description": "",
-                    "line": 16
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "onSelect",
-                    "args": [
-                        {
-                            "name": "selectedItem",
-                            "type": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 20,
-                    "jsdoctags": [
-                        {
-                            "name": "selectedItem",
-                            "type": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\n\n@Component({\n  templateUrl: './select-doc.component.html',\n  styleUrls: ['./select-doc.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SelectDocComponent {\n\n  items = [\n    {key:1, value: 'Greece'},\n    {key:2, value: 'Poland'},\n    {key:3, value: 'Netherlands'},\n    {key:4, value: 'Italy'},\n  ]\n  selected: {[key:string]: string}\n\n  constructor() { }\n\n  onSelect(selectedItem) {\n    this.selected = selectedItem\n  }\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./select-doc.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 16
-            },
-            "templateData": "<app-select [items]=\"items\" (select)=\"onSelect($event)\"></app-select>\n\nThe selected item is {{ selected | json }}\n"
-        },
-        {
             "name": "ToggleComponent",
             "id": "component-ToggleComponent-a558408c821a96a6d27c718e4e14902e",
             "file": "projects/my-lib/src/lib/components/toggle/toggle/toggle.component.ts",
@@ -636,44 +553,6 @@
                 "ControlValueAccessor"
             ],
             "templateData": "<div class=\"toggle-wrapper\">\n  <div class=\"d-flex align-items-center\">\n    <input type=\"checkbox\" id=\"{{ inputId }}\" class=\"toggle-checkbox\" (ngModelChange)=\"onChange($event)\" [(ngModel)]=\"status\" />\n    <label for=\"{{ inputId }}\" class=\"toggle-switch\"></label>\n  </div>\n  <span class=\"toggle-label\" [ngClass]=\"{ 'text-left': textInLeft }\">{{ label }}</span>\n</div>\n"
-        },
-        {
-            "name": "ToggleDocComponent",
-            "id": "component-ToggleDocComponent-a5bf0185db580d649b3b5a7e307cc8ba",
-            "file": "projects/ui-explorer/src/stories/toggle/toggle-doc/toggle-doc.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "styleUrls": [
-                "./toggle-doc.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./toggle-doc.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core';\n\n@Component({\n  templateUrl: './toggle-doc.component.html',\n  styleUrls: ['./toggle-doc.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ToggleDocComponent {\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./toggle-doc.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<!-- <app-select [items]=\"items\" (select)=\"onSelect($event)\"></app-select>\n\nThe selected item is {{ selected | json }} -->\n"
         }
     ],
     "modules": [
@@ -887,6 +766,14 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -953,15 +840,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "selectStories",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                "type": "",
-                "defaultValue": "storiesOf('Manual/Select', module)",
-                "description": "<p>Manual documentation</p>\n"
-            },
-            {
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -976,6 +854,14 @@
                 "file": "projects/ui-explorer/src/stories/button/Button.stories.ts",
                 "type": "Story<Button>",
                 "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "Story<SelectComponent>",
+                "defaultValue": "(args: SelectComponent) => ({\n  component: SelectComponent,\n  props: args,\n  moduleMetadata: {\n    declarations: [SelectComponent]\n  },\n})"
             },
             {
                 "name": "Template",
@@ -1039,6 +925,24 @@
                     "subtype": "variable",
                     "file": "projects/ui-explorer/src/test.ts",
                     "type": "literal type"
+                }
+            ],
+            "projects/ui-explorer/src/stories/select/select.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                    "type": "Story<SelectComponent>",
+                    "defaultValue": "(args: SelectComponent) => ({\n  component: SelectComponent,\n  props: args,\n  moduleMetadata: {\n    declarations: [SelectComponent]\n  },\n})"
                 }
             ],
             "projects/ui-explorer/src/stories/toggle/toggle.stories.ts": [
@@ -1120,17 +1024,6 @@
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
-            ],
-            "projects/ui-explorer/src/stories/select/select.stories.ts": [
-                {
-                    "name": "selectStories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-explorer/src/stories/select/select.stories.ts",
-                    "type": "",
-                    "defaultValue": "storiesOf('Manual/Select', module)",
-                    "description": "<p>Manual documentation</p>\n"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -1152,7 +1045,7 @@
         ]
     },
     "coverage": {
-        "count": 11,
+        "count": 7,
         "status": "low",
         "files": [
             {
@@ -1262,12 +1155,13 @@
                 "status": "very-good"
             },
             {
-                "filePath": "projects/ui-explorer/src/stories/select/select-doc/select-doc.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "SelectDocComponent",
+                "filePath": "projects/ui-explorer/src/stories/select/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1275,16 +1169,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "selectStories",
-                "coveragePercent": 100,
-                "coverageCount": "1/1",
-                "status": "very-good"
-            },
-            {
-                "filePath": "projects/ui-explorer/src/stories/toggle/toggle-doc/toggle-doc.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ToggleDocComponent",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
