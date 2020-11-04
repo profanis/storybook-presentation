@@ -869,7 +869,7 @@
                 "subtype": "variable",
                 "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
                 "type": "Story<ToggleComponent>",
-                "defaultValue": "(args: ToggleComponent) => ({\n  component: ToggleComponent,\n  props: args,\n  moduleMetadata: {\n    declarations: [ToggleComponent]\n  },\n  template: '<app-toggle [status]=\"status\" [label]=\"label\" [textInLeft]=\"textInLeft\" (toggle)=\"toggle($event)\"></app-toggle>'\n})"
+                "defaultValue": "(args: ToggleComponent) => ({\n  component: ToggleComponent,\n  props: args,\n  moduleMetadata: {\n    imports: [ToggleModule]\n  },\n  template: '<app-toggle [status]=\"status\" [label]=\"label\" [textInLeft]=\"textInLeft\" (toggle)=\"toggle($event)\"></app-toggle>'\n})"
             }
         ],
         "functions": [],
@@ -960,7 +960,7 @@
                     "subtype": "variable",
                     "file": "projects/ui-explorer/src/stories/toggle/toggle.stories.ts",
                     "type": "Story<ToggleComponent>",
-                    "defaultValue": "(args: ToggleComponent) => ({\n  component: ToggleComponent,\n  props: args,\n  moduleMetadata: {\n    declarations: [ToggleComponent]\n  },\n  template: '<app-toggle [status]=\"status\" [label]=\"label\" [textInLeft]=\"textInLeft\" (toggle)=\"toggle($event)\"></app-toggle>'\n})"
+                    "defaultValue": "(args: ToggleComponent) => ({\n  component: ToggleComponent,\n  props: args,\n  moduleMetadata: {\n    imports: [ToggleModule]\n  },\n  template: '<app-toggle [status]=\"status\" [label]=\"label\" [textInLeft]=\"textInLeft\" (toggle)=\"toggle($event)\"></app-toggle>'\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [

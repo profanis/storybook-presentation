@@ -1,6 +1,7 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { ToggleComponent } from '@my-lib';
 import { Meta, Story } from '@storybook/angular';
+import { ToggleModule } from '../../../../my-lib/src/lib/components/toggle/toggle.module';
 // @ts-ignore
 import notes from './toggle-notes.md';
 
@@ -10,7 +11,6 @@ import notes from './toggle-notes.md';
  */
 export default {
   title: 'Essential/Toggle',
-  component: ToggleComponent,
   argTypes: { toggle: { action: 'toggle state' } },
   parameters: {
     notes: { markdown: notes }
@@ -31,7 +31,7 @@ const Template: Story<ToggleComponent> = (args: ToggleComponent) => ({
   component: ToggleComponent,
   props: args,
   moduleMetadata: {
-    declarations: [ToggleComponent]
+    imports: [ToggleModule]
   },
   template: '<app-toggle [status]="status" [label]="label" [textInLeft]="textInLeft" (toggle)="toggle($event)"></app-toggle>'
 });
@@ -43,4 +43,5 @@ Default.args = {
   label: 'Switch me :) ',
   textInLeft: true
 };
+Default.storyName = 'Default Story Name'
 
